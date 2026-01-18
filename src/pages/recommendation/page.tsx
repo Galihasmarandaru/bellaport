@@ -1,7 +1,9 @@
+import { ButtonContact } from "@/components/button-contact"
+import { Combobox } from "@/components/combobox"
 import { useRecommendationContext } from "@/components/context/recommendation-provider"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useBack } from "@/context/hooks/use-back"
 import { ArrowLeft } from "lucide-react"
+import { Link } from "react-router"
 
 export default function Page() {
     const { handleBack } = useBack()
@@ -9,37 +11,30 @@ export default function Page() {
 
     console.log(recommendations)
     return (
-        <>
-            <div className="flex justify-between items-center bg-card p-6">
-                <ArrowLeft size={24} onClick={handleBack} />
+        <div className="bg-[#c4dfe6]">
+            <div className="flex justify-between items-center bg-[#c4dfe6] text-[#003B46] px-6 py-8">
+                <ButtonContact onClick={handleBack}>
+                    <ArrowLeft size={24} />
+                </ButtonContact>
                 <div className="flex space-x-4">
-                    <span className="text-lg">Rekomendasi Tempat Healing</span>
+                    <span className="text-lg">Rekomendasi Penginapan</span>
                 </div>
             </div>
-            <div className="pt-4 px-6 w-full">
-                <Select>
-                    <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Pilih kota" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectGroup>
-                            <SelectLabel>Fruits</SelectLabel>
-                            <SelectItem value="apple">All</SelectItem>
-                            <SelectItem value="banana">Banana</SelectItem>
-                            <SelectItem value="blueberry">Blueberry</SelectItem>
-                            <SelectItem value="grapes">Grapes</SelectItem>
-                            <SelectItem value="pineapple">Pineapple</SelectItem>
-                        </SelectGroup>
-                    </SelectContent>
-                </Select>
+            <div className="w-full">
+                <Combobox />
             </div>
-            <div className="py-6 grid grid-cols-2">
+            <div className="grid grid-cols-2">
                 {recommendations.map((item) => (
-                    <div key={item.id} className="bg-red-400">
-                        <img src={item.image} alt="" />
-                    </div>
+                    <Link key={item.id} className="w-full bg-white mx-auto border" to={item.link}>
+                        <div className="relative h-[300px] overflow-hidden">
+                            <img src={item.image} alt="" className="w-full inset-0 absolute h-full object-cover object-top" />
+                        </div>
+                        <div className="px-4 py-2">
+                            <span>{item.title}</span>
+                        </div>
+                    </Link>
                 ))}
             </div>
-        </>
+        </div >
     )
 }

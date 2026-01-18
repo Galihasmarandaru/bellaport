@@ -3,6 +3,7 @@ export type Recommendation = {
   image: string;
   title: string;
   description: string;
+  city: string;
   video: string;
   link: string;
 };
