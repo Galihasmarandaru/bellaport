@@ -7,7 +7,7 @@ import { ThemeProvider } from './components/context/theme-provider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider defaultTheme="dark" storageKey="bellaport-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="bellaport-ui-theme">
       <RouterProvider router={browserRoutes} />
     </ThemeProvider>
   </StrictMode>,
