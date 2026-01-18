@@ -4,7 +4,6 @@ import '@/assets/styles/styles.css'
 import { RouterProvider } from 'react-router';
 import { browserRoutes } from './routes';
 import { ThemeProvider } from './components/context/theme-provider';
-import { RecommendationProvider } from './components/context/recommendation-provider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

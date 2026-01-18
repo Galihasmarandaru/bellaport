@@ -3,11 +3,7 @@ import bella from "@/assets/images/bella.png";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { FlipWords } from "@/components/ui/flip-words";
 import { CardRecommendation } from "@/components/card-recommendation";
-import { Dumbbell, Plane, Shirt } from "lucide-react";
-import { useRecommendationData } from "@/context/hooks/use-recommendation-data";
-import { travelling } from "@/assets/data/travelling";
 import { useNavigate } from "react-router";
-import { useRecommendationContext } from "@/components/context/recommendation-provider";
 
 export default function App() {
     const navigate = useNavigate()
